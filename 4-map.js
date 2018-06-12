@@ -59,15 +59,6 @@ function keepOnlyVowels(array) {
   );
 }
 
-/*function keepOnlyVowels(array) {
-  return array.map(word => {
-    console.log(word);
-    return word.split('').filter(alphabet => {
-      return ['a', 'e', 'i', 'o', 'u'].indexOf(alphabet) > -1;
-    }).join('');
-  });
-}*/
-
 // Assertions (do not change)
 assertEquals(keepOnlyVowels(["abc"]), ["a"]);
 assertEquals(keepOnlyVowels(["exceptional"]), ["eeioa"]);

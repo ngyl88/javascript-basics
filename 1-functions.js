@@ -35,10 +35,6 @@ assertEquals(add2Numbers(100, 1), 101);
 /* ---------------------- EXERCISE 4 ---------------------- */
 // Define a function, invertCase(someString), that returns the input string with its case inverted
 function invertCase(someString) {
-  // return someString
-  //   .split("")
-  //   .map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase())
-  //   .join("");
   return Array.from(someString, c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('');
 
 }

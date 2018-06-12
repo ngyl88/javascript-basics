@@ -46,14 +46,6 @@ assertEquals(listAuthors(books), ["Bill Gates", "JRR Tolkkien", "JK Rowling"]);
 
 function listValues(booksArray, key) {
   return booksArray.map(book => book[key]);
-  /*return booksArray.map(book => {
-    if(Object.keys(book).indexOf(key) > -1) {
-      const descriptor = Object.getOwnPropertyDescriptor(book, key);
-      return descriptor.value;  // note: will cause errors for non-Key
-    } else {
-      return undefined;
-    }
-  });*/
 }
 console.log('LIST VALUES')
 // Assertions (do not change)
