@@ -44,21 +44,18 @@ assertEquals(listAuthors(books), ["Bill Gates", "JRR Tolkkien", "JK Rowling"]);
 /* 3. Define a more general function listValues(booksArray, key) that takes in an array
        of book objects and returns an array of authors (strings) */
 
-function myLookUpFunc(key, book) {
-  const {author, title, isAvailable} = book;
-  if(key === "author") {
-    return author;
-  } else if(key === "title") {
-    return title;
-  } else if(key === "isAvailable") {
-    return isAvailable;
-  }
-}
-
 function listValues(booksArray, key) {
-  return booksArray.map(book => myLookUpFunc(key, book));
+  return booksArray.map(book => book[key]);
+  /*return booksArray.map(book => {
+    if(Object.keys(book).indexOf(key) > -1) {
+      const descriptor = Object.getOwnPropertyDescriptor(book, key);
+      return descriptor.value;  // note: will cause errors for non-Key
+    } else {
+      return undefined;
+    }
+  });*/
 }
-
+console.log('LIST VALUES')
 // Assertions (do not change)
 assertEquals(listValues(books, "author"), [
   "Bill Gates",
@@ -70,16 +67,8 @@ assertEquals(listValues(books, "title"), [
   "Lord of the Rings",
   "Harry Potter"
 ]);
-assertEquals(listValues(books, "isAvailable"), [
-  true,
-  true,
-  false
-]);
-assertEquals(listValues(books, "nonKey"), [
-  undefined,
-  undefined,
-  undefined
-]);
+assertEquals(listValues(books, "isAvailable"), [true, true, false]);
+assertEquals(listValues(books, "nonKey"), [undefined, undefined, undefined]);
 
 // 4. Define a function getAvailableBooks(booksArray) that returns a list of available books
 
